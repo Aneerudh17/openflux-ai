@@ -51,7 +51,7 @@ function ImageUpload() {
         try {
 
             
-            const fileName = `${Date.now()}-${file.name}`;
+            const fileName = `${Date.now()}-${file.name}`; //collision handling 
 
             const { error: uploadError } = await supabase.storage
                 .from('wireframe-to-code')
