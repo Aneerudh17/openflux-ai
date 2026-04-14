@@ -1,0 +1,26 @@
+Problems:
+1. Regenerate code doesnt work
+2. Failed to retrieve profile photo from google account
+3. Card component animation failure
+4. Less or no space between components
+5. Bad or invisible text and background in the text box ( regenerate code )
+6. failed to udpate user credits 
+7. No Error message on completion of user credits - throws error from next
+8. Next throws axios error while google auth - reason unknown
+
+* Ditching BYOK * security compromised!
+
+
+Fixes:
+1. Disabled set to False, More description can be added and regenerated
+3. Fixed buggy card component
+4. Fixed bad ui @ landing page - light bar still overlaps the pricing profile ( but thanks bro )
+5. Changed bg to black and text to white - more readable
+6. updating user credits to supabase backend
+7. Added try catch exception to avoid errors
+
+Update
+2, 8 - to be resolved
+no payment gateway added - might not add (frozen bank account)
+Code sandbox tailwind not preconfigured - couldnt Fix
+clerk utils not removed yet, breaks app - dependency issues. ( npm sucks ) 
