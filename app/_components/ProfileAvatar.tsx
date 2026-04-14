@@ -17,10 +17,10 @@ function ProfileAvatar() {
   const router = useRouter()
   const [user, setUser] = useState<any>(null)
 
-  useEffect(() => {
+  useEffect(() => { //useeffect runs after every render, treated more like an side effects of use state, infinite loop if used wrong
     const getUser = async () => {
       const { data } = await supabase.auth.getUser()
-      setUser(data.user)
+      setUser(data.user) // updating varible memory and re-rendering component ( line 18 )
     }
 
     getUser()
