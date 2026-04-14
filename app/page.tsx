@@ -55,7 +55,7 @@ export default function Home() {
                 )}
 
                 <h1 className="text-5xl md:text-8xl bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-600 font-sans font-bold text-center">
-                  Innovate Your Work With Fuzzie
+                  Innovate Your Work With Flux-AI
                 </h1>
 
               </div>
