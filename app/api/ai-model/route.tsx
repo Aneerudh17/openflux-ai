@@ -13,13 +13,13 @@ export async function POST(req: NextRequest) {
 
     const { model, description, imageUrl } = await req.json();
 
-    // Find model from constants
+    // find model from constants.tsx ( only gemini - changing it later to 3.0)
     const ModelObj = Constants.AiModelList.find(
       (item) => item.name === model
     );
 
-    // Default to Gemini 2.5 Flash
-    const modelName = ModelObj?.modelName ?? "gemini-2.5-flash";
+    // Default - Gemini 2.5 Flash
+    const modelName = ModelObj?.modelName ?? "gemini-3-flash";
 
     console.log("Using Gemini model:", modelName);
 
