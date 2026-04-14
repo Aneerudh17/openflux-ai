@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
             createdBy: email
         }).returning({ id: WireframeToCodeTable.id });
 
-        // Update user credits
+        //user credit update - reducing by one ( so far no way to buy more )
         const data = await db.update(usersTable).set({
             credits: creditResult[0]?.credits - 1
         }).where(eq(usersTable.email, email));
