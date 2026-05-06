@@ -1,0 +1,378 @@
+import React, { useState } from "react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  RefreshCw,
+  Search,
+  ShoppingBag,
+  Menu,
+  Facebook,
+  Instagram,
+  Twitter,
+} from "lucide-react";
+
+export default function ProductLandingPage() {
+  const [activeTab, setActiveTab] = useState("Overview");
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const tabs = ["Overview", "Features", "Design", "Specs"];
+
+  const slides = [
+    "https://www.svgrepo.com/show/508699/landscape-placeholder.svg",
+    "https://www.svgrepo.com/show/508699/landscape-placeholder.svg",
+    "https://www.svgrepo.com/show/508699/landscape-placeholder.svg",
+    "https://www.svgrepo.com/show/508699/landscape-placeholder.svg",
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-100 text-slate-800 flex flex-col">
+      {/* Header */}
+      <header className="bg-white border-b border-slate-300 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <button className="p-2 rounded-lg hover:bg-slate-100 transition">
+              <Menu className="w-5 h-5 text-slate-700" />
+            </button>
+
+            <div>
+              <h1 className="text-lg font-bold text-slate-900">
+                The New New Thing
+              </h1>
+              <p className="text-xs text-slate-500">
+                Innovative products for modern creators
+              </p>
+            </div>
+          </div>
+
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700">
+            <a href="#" className="hover:text-blue-600 transition">
+              Products
+            </a>
+            <a href="#" className="hover:text-blue-600 transition">
+              Features
+            </a>
+            <a href="#" className="hover:text-blue-600 transition">
+              Design
+            </a>
+            <a href="#" className="hover:text-blue-600 transition">
+              Contact
+            </a>
+          </nav>
+
+          <div className="flex items-center gap-3">
+            <button className="p-2 rounded-lg hover:bg-slate-100 transition">
+              <Search className="w-5 h-5 text-slate-700" />
+            </button>
+
+            <button className="p-2 rounded-lg hover:bg-slate-100 transition">
+              <ShoppingBag className="w-5 h-5 text-slate-700" />
+            </button>
+          </div>
+        </div>
+
+        {/* Browser Style Bar */}
+        <div className="bg-slate-200 border-t border-slate-300 px-4 py-2">
+          <div className="max-w-7xl mx-auto flex items-center gap-3">
+            <button className="p-2 rounded-md hover:bg-slate-300 transition">
+              <ArrowLeft className="w-4 h-4 text-slate-700" />
+            </button>
+
+            <button className="p-2 rounded-md hover:bg-slate-300 transition">
+              <ArrowRight className="w-4 h-4 text-slate-700" />
+            </button>
+
+            <button className="p-2 rounded-md hover:bg-slate-300 transition">
+              <RefreshCw className="w-4 h-4 text-slate-700" />
+            </button>
+
+            <div className="flex-1 bg-white border border-slate-400 rounded-full px-5 py-2 text-sm text-slate-500 shadow-inner">
+              https://thenewnewthing.com
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="flex-1">
+        <section className="max-w-7xl mx-auto px-6 py-10">
+          {/* Hero Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            {/* Left Content */}
+            <div className="space-y-6">
+              <div>
+                <p className="text-sm uppercase tracking-widest text-blue-600 font-semibold">
+                  Featured Product
+                </p>
+
+                <h2 className="text-5xl font-extrabold text-slate-900 mt-2 leading-tight">
+                  Product Name
+                </h2>
+              </div>
+
+              <p className="text-slate-600 leading-8 text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+
+              <div className="flex gap-4">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition">
+                  Buy Now
+                </button>
+
+                <button className="border border-slate-300 hover:bg-slate-100 px-6 py-3 rounded-xl font-semibold transition">
+                  Learn More
+                </button>
+              </div>
+
+              {/* Feature Cards */}
+              <div className="grid grid-cols-2 gap-4 pt-4">
+                <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+                  <h3 className="font-bold text-slate-900">Fast Performance</h3>
+                  <p className="text-sm text-slate-500 mt-2 leading-6">
+                    Optimized for seamless experiences and modern workflows.
+                  </p>
+                </div>
+
+                <div className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+                  <h3 className="font-bold text-slate-900">Elegant Design</h3>
+                  <p className="text-sm text-slate-500 mt-2 leading-6">
+                    Clean aesthetic with a refined and minimal visual style.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Image */}
+            <div className="flex flex-col items-center">
+              <div className="bg-white border border-slate-300 rounded-3xl shadow-lg p-6 w-full">
+                <img
+                  src={slides[activeSlide]}
+                  alt="Product"
+                  className="w-full h-96 object-cover rounded-2xl"
+                />
+              </div>
+
+              {/* Dots */}
+              <div className="flex items-center gap-3 mt-6">
+                {slides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveSlide(index)}
+                    className={`w-4 h-4 rounded-full transition ${
+                      activeSlide === index
+                        ? "bg-slate-800"
+                        : "border border-slate-500 bg-white"
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Tabs Section */}
+          <div className="mt-16 bg-white rounded-3xl border border-slate-300 shadow-md overflow-hidden">
+            {/* Tab Headers */}
+            <div className="flex flex-wrap border-b border-slate-200 bg-slate-50">
+              {tabs.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-6 py-4 text-sm font-semibold transition ${
+                    activeTab === tab
+                      ? "bg-white border-b-2 border-blue-600 text-blue-600"
+                      : "text-slate-600 hover:bg-slate-100"
+                  }`}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
+
+            {/* Tab Content */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 p-8">
+              {/* Left Text */}
+              <div>
+                <h3 className="text-2xl font-bold text-slate-900 mb-5">
+                  {activeTab}
+                </h3>
+
+                <p className="text-slate-600 leading-8 text-lg">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur.
+                </p>
+
+                <div className="grid grid-cols-2 gap-4 mt-8">
+                  <div className="bg-slate-100 rounded-2xl p-5">
+                    <h4 className="font-semibold text-slate-900">
+                      Smart Workflow
+                    </h4>
+                    <p className="text-sm text-slate-500 mt-2">
+                      Built to improve efficiency and productivity.
+                    </p>
+                  </div>
+
+                  <div className="bg-slate-100 rounded-2xl p-5">
+                    <h4 className="font-semibold text-slate-900">
+                      Responsive UI
+                    </h4>
+                    <p className="text-sm text-slate-500 mt-2">
+                      Looks stunning across desktop and mobile devices.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Chart Style Graphic */}
+              <div className="flex items-end justify-center">
+                <div className="w-full h-80 bg-slate-100 rounded-3xl border border-slate-200 p-6 flex items-end gap-6">
+                  <div className="flex-1 bg-blue-300 rounded-t-xl h-16"></div>
+                  <div className="flex-1 bg-blue-400 rounded-t-xl h-28"></div>
+                  <div className="flex-1 bg-blue-500 rounded-t-xl h-44"></div>
+                  <div className="flex-1 bg-blue-600 rounded-t-xl h-60"></div>
+                  <div className="flex-1 bg-blue-500 rounded-t-xl h-40"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
+            <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm">
+              <h3 className="text-xl font-bold text-slate-900">
+                Premium Quality
+              </h3>
+
+              <p className="text-slate-500 mt-4 leading-7">
+                Carefully crafted with attention to detail and performance.
+              </p>
+            </div>
+
+            <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm">
+              <h3 className="text-xl font-bold text-slate-900">
+                Scalable Design
+              </h3>
+
+              <p className="text-slate-500 mt-4 leading-7">
+                Built for future growth with adaptable architecture.
+              </p>
+            </div>
+
+            <div className="bg-white border border-slate-200 rounded-3xl p-7 shadow-sm">
+              <h3 className="text-xl font-bold text-slate-900">
+                Modern Experience
+              </h3>
+
+              <p className="text-slate-500 mt-4 leading-7">
+                Professional UI/UX focused on clarity and usability.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-slate-900 text-slate-300 mt-16">
+        <div className="max-w-7xl mx-auto px-6 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div>
+              <h3 className="text-white text-xl font-bold">
+                The New New Thing
+              </h3>
+
+              <p className="text-slate-400 mt-4 leading-7">
+                Building elegant digital experiences with modern UI and
+                innovative design systems.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-white font-semibold mb-4">Company</h4>
+
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <a href="#" className="hover:text-white transition">
+                    About
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" className="hover:text-white transition">
+                    Careers
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" className="hover:text-white transition">
+                    Blog
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-semibold mb-4">Resources</h4>
+
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <a href="#" className="hover:text-white transition">
+                    Documentation
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" className="hover:text-white transition">
+                    Support
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" className="hover:text-white transition">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-semibold mb-4">Social</h4>
+
+              <div className="flex gap-4">
+                <button className="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 transition">
+                  <Facebook className="w-5 h-5" />
+                </button>
+
+                <button className="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 transition">
+                  <Instagram className="w-5 h-5" />
+                </button>
+
+                <button className="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 transition">
+                  <Twitter className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-slate-800 mt-10 pt-6 text-sm text-slate-500 flex flex-col md:flex-row justify-between gap-4">
+            <p>© 2026 The New New Thing. All rights reserved.</p>
+
+            <div className="flex gap-6">
+              <a href="#" className="hover:text-white transition">
+                Privacy Policy
+              </a>
+
+              <a href="#" className="hover:text-white transition">
+                Terms of Service
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
