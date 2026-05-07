@@ -6,10 +6,10 @@ import path from "path";
 
 export const maxDuration = 300;
 
-// Initialize Gemini client
+
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
-// Magic description that triggers the cache bypass
+
 const CACHE_TRIGGER = "generate as per the given image";
 
 export async function POST(req: NextRequest) {
